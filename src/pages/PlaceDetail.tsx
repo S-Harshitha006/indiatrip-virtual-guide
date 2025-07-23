@@ -15,9 +15,11 @@ import {
   Ticket, 
   ArrowLeft,
   Camera,
-  Globe
+  Globe,
+  Eye
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import VRViewer from "@/components/VRViewer";
 
 const PlaceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -80,27 +82,50 @@ const PlaceDetail = () => {
               </div>
             </div>
 
-            {/* 360° View */}
+            {/* Split Screen 360° Views */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Globe className="h-5 w-5" />
-                  <span>360° Virtual Tour</span>
+                  <span>360° Virtual Experience</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                  <iframe
-                    src={place.streetViewUrl}
-                    width="100%"
-                    height="100%"
-                    className="rounded-lg"
-                    frameBorder="0"
-                    allowFullScreen
-                  />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-96">
+                  {/* Google Street View */}
+                  <div className="flex flex-col">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <MapPin className="h-4 w-4 text-primary" />
+                      <span className="text-sm font-medium">Google Street View</span>
+                    </div>
+                    <div className="flex-1 bg-muted rounded-lg overflow-hidden">
+                      <iframe
+                        src={place.streetViewUrl}
+                        width="100%"
+                        height="100%"
+                        className="rounded-lg"
+                        frameBorder="0"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+
+                  {/* VR Mode View */}
+                  <div className="flex flex-col">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Eye className="h-4 w-4 text-primary" />
+                      <span className="text-sm font-medium">VR Mode View</span>
+                    </div>
+                    <div className="flex-1">
+                      <VRViewer 
+                        panoramaUrl={place.vrPanoramaUrl}
+                        placeName={place.name}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Use your mouse to navigate the 360° view
+                <p className="text-sm text-muted-foreground mt-3 text-center">
+                  Experience the location through both Google Street View and immersive VR mode
                 </p>
               </CardContent>
             </Card>

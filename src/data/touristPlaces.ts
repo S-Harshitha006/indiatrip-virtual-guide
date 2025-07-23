@@ -15,6 +15,7 @@ export interface TouristPlace {
     lng: number;
   };
   streetViewUrl: string;
+  vrPanoramaUrl: string;
 }
 
 export const touristPlaces: TouristPlace[] = [
@@ -31,7 +32,8 @@ export const touristPlaces: TouristPlace[] = [
     ticketPrice: "₹1100 for Indians, $15 for Foreigners",
     image: "/src/assets/hero-india.jpg",
     coordinates: { lat: 27.1751, lng: 78.0421 },
-    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSLEFGMVFpcE9fWjZCVGZMdGVzYkNjbzNnblFCQUFFQ0R3SjZOOUNBVWJNQVo6!2m2!1d27.1749395!2d78.0420954!3f0!4f0!5f0.7820865974627469"
+    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSLEFGMVFpcE9fWjZCVGZMdGVzYkNjbzNnblFCQUFFQ0R3SjZOOUNBVWJNQVo6!2m2!1d27.1749395!2d78.0420954!3f0!4f0!5f0.7820865974627469",
+    vrPanoramaUrl: "https://storage.googleapis.com/vrview/examples/coral.jpg"
   },
   {
     id: "red-fort",
@@ -46,7 +48,8 @@ export const touristPlaces: TouristPlace[] = [
     ticketPrice: "₹35 for Indians, ₹500 for Foreigners",
     image: "/src/assets/red-fort.jpg",
     coordinates: { lat: 28.6562, lng: 77.2410 },
-    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d28.6561592!2d77.2408334!3f0!4f0!5f0.7820865974627469"
+    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d28.6561592!2d77.2408334!3f0!4f0!5f0.7820865974627469",
+    vrPanoramaUrl: "https://storage.googleapis.com/vrview/examples/andes.jpg"
   },
   {
     id: "goa-beach",
@@ -61,7 +64,8 @@ export const touristPlaces: TouristPlace[] = [
     ticketPrice: "Free (Public beaches)",
     image: "/src/assets/goa-beach.jpg",
     coordinates: { lat: 15.2993, lng: 74.1240 },
-    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d15.2832148!2d73.9712835!3f0!4f0!5f0.7820865974627469"
+    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d15.2832148!2d73.9712835!3f0!4f0!5f0.7820865974627469",
+    vrPanoramaUrl: "https://storage.googleapis.com/vrview/examples/landscape.jpg"
   },
   {
     id: "hawa-mahal",
@@ -76,7 +80,8 @@ export const touristPlaces: TouristPlace[] = [
     ticketPrice: "₹50 for Indians, ₹200 for Foreigners",
     image: "/src/assets/hawa-mahal.jpg",
     coordinates: { lat: 26.9239, lng: 75.8267 },
-    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d26.9239085!2d75.8269109!3f0!4f0!5f0.7820865974627469"
+    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d26.9239085!2d75.8269109!3f0!4f0!5f0.7820865974627469",
+    vrPanoramaUrl: "https://storage.googleapis.com/vrview/examples/boardwalk.jpg"
   },
   {
     id: "kerala-backwaters",
@@ -91,7 +96,8 @@ export const touristPlaces: TouristPlace[] = [
     ticketPrice: "₹1500-3000 for Houseboat",
     image: "/src/assets/kerala-backwaters.jpg",
     coordinates: { lat: 9.4981, lng: 76.3388 },
-    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d9.4980667!2d76.3388176!3f0!4f0!5f0.7820865974627469"
+    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d9.4980667!2d76.3388176!3f0!4f0!5f0.7820865974627469",
+    vrPanoramaUrl: "https://storage.googleapis.com/vrview/examples/coral.jpg"
   },
   {
     id: "gateway-of-india",
@@ -106,6 +112,7 @@ export const touristPlaces: TouristPlace[] = [
     ticketPrice: "Free Entry",
     image: "/src/assets/gateway-of-india.jpg",
     coordinates: { lat: 18.9220, lng: 72.8347 },
-    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d18.9216631!2d72.8346542!3f0!4f0!5f0.7820865974627469"
+    streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d18.9216631!2d72.8346542!3f0!4f0!5f0.7820865974467",
+    vrPanoramaUrl: "https://storage.googleapis.com/vrview/examples/landscape.jpg"
   }
 ];
