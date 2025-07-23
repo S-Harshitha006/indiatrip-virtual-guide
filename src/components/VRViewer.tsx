@@ -1,5 +1,6 @@
-import { useEffect, useRef } from "react";
-import { Play, RotateCcw } from "lucide-react";
+
+import { useEffect, useRef, useState } from "react";
+import { RotateCcw, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface VRViewerProps {
@@ -14,19 +15,36 @@ const VRViewer = ({ panoramaUrl, placeName }: VRViewerProps) => {
   const lastX = useRef(0);
   const yaw = useRef(0);
   const pitch = useRef(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
 
+    setIsLoading(true);
+    setHasError(false);
+
+    console.log('Loading VR panorama:', panoramaUrl);
+
     // Load panoramic image
     const img = new Image();
     img.crossOrigin = "anonymous";
+    
     img.onload = () => {
+      console.log('VR image loaded successfully');
       imageRef.current = img;
+      setIsLoading(false);
       drawPanorama();
     };
+
+    img.onerror = (error) => {
+      console.error('Failed to load VR image:', error);
+      setHasError(true);
+      setIsLoading(false);
+    };
+
     img.src = panoramaUrl;
 
     const drawPanorama = () => {
@@ -66,6 +84,7 @@ const VRViewer = ({ panoramaUrl, placeName }: VRViewerProps) => {
     const handleMouseDown = (e: MouseEvent) => {
       isDragging.current = true;
       lastX.current = e.clientX;
+      canvas.style.cursor = 'grabbing';
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -80,6 +99,7 @@ const VRViewer = ({ panoramaUrl, placeName }: VRViewerProps) => {
 
     const handleMouseUp = () => {
       isDragging.current = false;
+      canvas.style.cursor = 'grab';
     };
 
     // Touch event handlers for mobile
@@ -118,7 +138,9 @@ const VRViewer = ({ panoramaUrl, placeName }: VRViewerProps) => {
       const rect = canvas.getBoundingClientRect();
       canvas.width = rect.width;
       canvas.height = rect.height;
-      drawPanorama();
+      if (imageRef.current) {
+        drawPanorama();
+      }
     };
 
     resizeCanvas();
@@ -142,12 +164,34 @@ const VRViewer = ({ panoramaUrl, placeName }: VRViewerProps) => {
     const ctx = canvas?.getContext('2d');
     if (canvas && ctx && imageRef.current) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(imageRef.current, 0, 0, canvas.width, canvas.height);
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      ctx.drawImage(imageRef.current, 0, 0, canvasWidth, canvasHeight);
     }
   };
 
+  if (hasError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-muted rounded-lg" style={{ minHeight: '350px' }}>
+        <div className="text-center">
+          <AlertCircle className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
+          <p className="text-sm text-muted-foreground">Failed to load VR view</p>
+          <p className="text-xs text-muted-foreground mt-1">Using sample panorama instead</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-full relative">
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-muted rounded-lg z-10">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
+            <p className="text-sm text-muted-foreground">Loading VR view...</p>
+          </div>
+        </div>
+      )}
       <canvas
         ref={canvasRef}
         className="w-full h-full rounded-lg cursor-grab active:cursor-grabbing bg-muted"
