@@ -19,7 +19,7 @@ import {
   Eye
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import WebXRViewer from "@/components/WebXRViewer";
+import EnhancedVRViewer from "@/components/WebXRViewer";
 
 const PlaceDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -117,7 +117,7 @@ const PlaceDetail = () => {
                       <span className="text-sm font-medium">VR Mode View</span>
                     </div>
                     <div className="flex-1">
-                      <WebXRViewer 
+                      <EnhancedVRViewer 
                         panoramaUrl={place.vrPanoramaUrl}
                         placeName={place.name}
                       />
