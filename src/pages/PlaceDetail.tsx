@@ -36,11 +36,7 @@ const PlaceDetail = () => {
   }, [id, navigate]);
 
   const handleBookTicket = () => {
-    toast({
-      title: "Booking Initiated",
-      description: "Redirecting to booking platform...",
-    });
-    // In a real app, this would redirect to a booking platform
+    navigate(`/booking?placeId=${place?.id}`);
   };
 
   if (!place) {

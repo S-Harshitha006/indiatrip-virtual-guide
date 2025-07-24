@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import PlaceCard from "@/components/PlaceCard";
+import HeroCarousel from "@/components/HeroCarousel";
 import { touristPlaces, TouristPlace } from "@/data/touristPlaces";
 import { Button } from "@/components/ui/button";
 import { MapPin, Camera, Star, Users } from "lucide-react";
-import heroImage from "@/assets/hero-india.jpg";
 
 const Index = () => {
   const [filteredPlaces, setFilteredPlaces] = useState<TouristPlace[]>(touristPlaces);
@@ -35,52 +35,20 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar onSearch={handleSearch} />
       
-      {/* Hero Section */}
-      <section className="relative h-[80vh] overflow-hidden">
-        <img 
-          src={heroImage} 
-          alt="India Tourism" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
-        
-        <div className="absolute inset-0 flex items-center">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl text-white">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Discover
-                <span className="block bg-gradient-primary bg-clip-text text-transparent">
-                  Incredible India
-                </span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-white/90">
-                Explore the land of diverse cultures, magnificent monuments, and breathtaking landscapes
-              </p>
-              
-              <div className="flex flex-wrap gap-6 mb-8">
-                <div className="flex items-center space-x-2">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  <span>28 States to Explore</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Camera className="h-5 w-5 text-secondary" />
-                  <span>1000+ Destinations</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Star className="h-5 w-5 text-accent" />
-                  <span>UNESCO World Heritage Sites</span>
-                </div>
-              </div>
-              
-              {user && (
-                <div className="mb-4 text-primary">
-                  Welcome back, {user.name}! 👋
-                </div>
-              )}
+      {/* Hero Section with Carousel */}
+      <HeroCarousel />
+      
+      {/* Welcome Message */}
+      {user && (
+        <section className="py-8 bg-primary/5">
+          <div className="container mx-auto px-4 text-center">
+            <div className="text-2xl font-semibold text-primary">
+              Welcome back, {user.name}! 👋
             </div>
+            <p className="text-muted-foreground mt-2">Ready to explore more amazing destinations?</p>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Top Tourist Places */}
       <section className="py-16 bg-background">
