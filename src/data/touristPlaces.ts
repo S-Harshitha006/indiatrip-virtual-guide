@@ -127,7 +127,7 @@ export const touristPlaces: TouristPlace[] = [
     distance: "140 km from Bangalore",
     travelOptions: ["Car (3 hours)", "Train (3 hours)", "Bus (3.5 hours)", "Flight to Mysore (45 minutes)"],
     ticketPrice: "₹70 for Indians, ₹200 for Foreigners",
-    image: "/src/assets/hero-india.jpg",
+    image: "/src/assets/mysore-palace.jpg",
     coordinates: { lat: 12.3052, lng: 76.6551 },
     streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d12.3051543!2d76.6551234!3f0!4f0!5f0.7820865974627469",
     vrPanoramaUrl: "/src/assets/panorama-abstract.jpg"
@@ -143,7 +143,7 @@ export const touristPlaces: TouristPlace[] = [
     distance: "450 km from Delhi",
     travelOptions: ["Train (6 hours)", "Flight (1.5 hours)", "Car (7-8 hours)", "Bus (8-9 hours)"],
     ticketPrice: "Free Entry",
-    image: "/src/assets/gateway-of-india.jpg",
+    image: "/src/assets/golden-temple.jpg",
     coordinates: { lat: 31.6200, lng: 74.8765 },
     streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d31.6199834!2d74.8764567!3f0!4f0!5f0.7820865974627469",
     vrPanoramaUrl: "/src/assets/panorama-city.jpg"
@@ -159,7 +159,7 @@ export const touristPlaces: TouristPlace[] = [
     distance: "340 km from Bangalore",
     travelOptions: ["Train to Hospet (8 hours)", "Car (6 hours)", "Bus (7 hours)", "Flight to Bellary (1 hour)"],
     ticketPrice: "₹40 for Indians, ₹600 for Foreigners",
-    image: "/src/assets/red-fort.jpg",
+    image: "/src/assets/hampi-ruins.jpg",
     coordinates: { lat: 15.3350, lng: 76.4600 },
     streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d15.3349876!2d76.4599123!3f0!4f0!5f0.7820865974627469",
     vrPanoramaUrl: "/src/assets/panorama-nature.jpg"
@@ -175,7 +175,7 @@ export const touristPlaces: TouristPlace[] = [
     distance: "320 km from Lucknow",
     travelOptions: ["Train (5-6 hours from Delhi)", "Flight (1.5 hours)", "Car (8 hours)", "Bus (10 hours)"],
     ticketPrice: "Free (Ghats), ₹25 for Kashi Vishwanath Temple",
-    image: "/src/assets/kerala-backwaters.jpg",
+    image: "/src/assets/varanasi-ghats.jpg",
     coordinates: { lat: 25.3176, lng: 82.9739 },
     streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d25.3175987!2d82.9738654!3f0!4f0!5f0.7820865974627469",
     vrPanoramaUrl: "/src/assets/panorama-abstract.jpg"
@@ -191,7 +191,7 @@ export const touristPlaces: TouristPlace[] = [
     distance: "350 km from Mumbai",
     travelOptions: ["Flight to Aurangabad (1 hour)", "Train (7 hours)", "Car (6-7 hours)", "Bus (8 hours)"],
     ticketPrice: "₹40 for Indians, ₹600 for Foreigners",
-    image: "/src/assets/hawa-mahal.jpg",
+    image: "/src/assets/ajanta-ellora.jpg",
     coordinates: { lat: 20.5527, lng: 75.7026 },
     streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d20.5526789!2d75.7025432!3f0!4f0!5f0.7820865974627469",
     vrPanoramaUrl: "/src/assets/panorama-city.jpg"
@@ -207,7 +207,7 @@ export const touristPlaces: TouristPlace[] = [
     distance: "460 km from Chennai",
     travelOptions: ["Flight (1.5 hours)", "Train (8 hours)", "Car (7-8 hours)", "Bus (9 hours)"],
     ticketPrice: "Free Entry, Special Darshan ₹50",
-    image: "/src/assets/goa-beach.jpg",
+    image: "/src/assets/meenakshi-temple.jpg",
     coordinates: { lat: 9.9195, lng: 78.1193 },
     streetViewUrl: "https://www.google.com/maps/embed?pb=!4v1234567890!6m8!1m7!1sCAoSK0FGMVFpcE1VaFRqOXBlTVZBSnVjSGZNRFdRQ0xnZkxwRzNfX1JfVlQ!2m2!1d9.9194567!2d78.1192876!3f0!4f0!5f0.7820865974627469",
     vrPanoramaUrl: "/src/assets/panorama-nature.jpg"
