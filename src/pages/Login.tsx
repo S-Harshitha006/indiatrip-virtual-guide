@@ -54,7 +54,7 @@ const Login = () => {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <MapPin className="h-10 w-10 text-white" />
-            <span className="text-3xl font-bold text-white">Incredible India</span>
+            <span className="text-3xl font-bold text-white">Discover India</span>
           </div>
           <p className="text-white/80">Discover the wonders of India</p>
         </div>

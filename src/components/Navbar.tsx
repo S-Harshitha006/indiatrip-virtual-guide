@@ -32,7 +32,7 @@ const Navbar = ({ onSearch }: NavbarProps) => {
           <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/")}>
             <MapPin className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Incredible India
+              Discover India
             </span>
           </div>
 
