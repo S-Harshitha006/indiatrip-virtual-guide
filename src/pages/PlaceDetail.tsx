@@ -30,6 +30,20 @@ const PlaceDetail = () => {
     const foundPlace = touristPlaces.find(p => p.id === id);
     if (foundPlace) {
       setPlace(foundPlace);
+      
+      // Add to recently viewed
+      const recentlyViewed = JSON.parse(localStorage.getItem("recentlyViewed") || "[]");
+      const newEntry = {
+        id: foundPlace.id,
+        name: foundPlace.name,
+        location: foundPlace.location,
+        image: foundPlace.image,
+        viewedAt: new Date().toISOString()
+      };
+      
+      const filtered = recentlyViewed.filter((item: any) => item.id !== foundPlace.id);
+      const updated = [newEntry, ...filtered].slice(0, 10);
+      localStorage.setItem("recentlyViewed", JSON.stringify(updated));
     } else {
       navigate("/");
     }

@@ -3,6 +3,8 @@ import { Search, MapPin, User, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
+import DarkModeToggle from "@/components/DarkModeToggle";
+import { motion } from "framer-motion";
 
 interface NavbarProps {
   onSearch?: (query: string) => void;
@@ -55,9 +57,13 @@ const Navbar = ({ onSearch }: NavbarProps) => {
             <Button variant="ghost" onClick={() => navigate("/")}>
               Home
             </Button>
+            <Button variant="ghost" onClick={() => navigate("/explore")}>
+              Explore
+            </Button>
             <Button variant="ghost">
               About
             </Button>
+            <DarkModeToggle />
             <Button 
               onClick={handleLogin}
               className="bg-gradient-primary text-white hover:opacity-90 transition-opacity"
@@ -100,9 +106,16 @@ const Navbar = ({ onSearch }: NavbarProps) => {
                 <Button variant="ghost" className="w-full justify-start" onClick={() => navigate("/")}>
                   Home
                 </Button>
+                <Button variant="ghost" className="w-full justify-start" onClick={() => navigate("/explore")}>
+                  Explore
+                </Button>
                 <Button variant="ghost" className="w-full justify-start">
                   About
                 </Button>
+                <div className="flex items-center justify-between px-3 py-2">
+                  <span className="text-sm text-muted-foreground">Theme</span>
+                  <DarkModeToggle />
+                </div>
                 <Button 
                   onClick={handleLogin}
                   className="w-full bg-gradient-primary text-white"
