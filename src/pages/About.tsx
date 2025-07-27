@@ -52,30 +52,6 @@ const About = () => {
     { name: "Three.js", icon: Globe, color: "bg-orange-500" }
   ];
 
-  const teamMembers = [
-    {
-      name: "Arjun Kumar",
-      role: "Full Stack Developer",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      github: "https://github.com",
-      linkedin: "https://linkedin.com"
-    },
-    {
-      name: "Priya Sharma",
-      role: "UX Designer",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b593?w=150&h=150&fit=crop&crop=face",
-      github: "https://github.com",
-      linkedin: "https://linkedin.com"
-    },
-    {
-      name: "Rahul Patel",
-      role: "Frontend Developer",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      github: "https://github.com",
-      linkedin: "https://linkedin.com"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -199,63 +175,11 @@ const About = () => {
           </Card>
         </motion.div>
 
-        {/* Team Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center mb-8">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 1 + index * 0.1 }}
-              >
-                <Card className="text-center hover:shadow-elegant transition-shadow">
-                  <CardContent className="p-6">
-                    <img
-                      src={member.avatar}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                    />
-                    <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                    <Badge variant="secondary" className="mb-4">{member.role}</Badge>
-                    <div className="flex justify-center space-x-3">
-                      <a
-                        href={member.github}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Github className="h-5 w-5" />
-                      </a>
-                      <a
-                        href={member.linkedin}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Linkedin className="h-5 w-5" />
-                      </a>
-                      <a
-                        href="mailto:team@exploreindia.com"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Mail className="h-5 w-5" />
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Features Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
           className="mb-16"
         >
           <h2 className="text-3xl font-bold text-center mb-8">Key Features</h2>
@@ -294,7 +218,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
           className="text-center"
         >
           <Card>
