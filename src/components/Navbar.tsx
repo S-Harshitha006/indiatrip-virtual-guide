@@ -60,7 +60,7 @@ const Navbar = ({ onSearch }: NavbarProps) => {
             <Button variant="ghost" onClick={() => navigate("/explore")}>
               Explore
             </Button>
-            <Button variant="ghost">
+            <Button variant="ghost" onClick={() => navigate("/about")}>
               About
             </Button>
             <DarkModeToggle />
@@ -109,7 +109,7 @@ const Navbar = ({ onSearch }: NavbarProps) => {
                 <Button variant="ghost" className="w-full justify-start" onClick={() => navigate("/explore")}>
                   Explore
                 </Button>
-                <Button variant="ghost" className="w-full justify-start">
+                <Button variant="ghost" className="w-full justify-start" onClick={() => navigate("/about")}>
                   About
                 </Button>
                 <div className="flex items-center justify-between px-3 py-2">
