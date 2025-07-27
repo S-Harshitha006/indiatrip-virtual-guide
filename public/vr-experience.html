@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Explore India VR - 360° Experience</title>
+    <meta name="description" content="Immersive 360° VR experience of India's beautiful destinations">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- A-Frame Library -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    
+    <!-- Optional: Enhanced VR controls -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Info overlay for desktop users */
+        .vr-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 1000;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .vr-info h3 {
+            margin: 0 0 10px 0;
+            color: #FF6B35;
+        }
+        
+        .vr-info p {
+            margin: 5px 0;
+        }
+        
+        /* Hide info in VR mode */
+        .a-enter-vr .vr-info {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .vr-info {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Info overlay for users -->
+    <div class="vr-info">
+        <h3>🇮🇳 Welcome to Explore India VR</h3>
+        <p><strong>Desktop:</strong> Click and drag to look around | <strong>Mobile:</strong> Move your device</p>
+        <p><strong>VR Headset:</strong> Click the VR button below to enter immersive mode</p>
+        <p>Experience the beauty of India in 360°!</p>
+    </div>
+
+    <!-- A-Frame VR Scene -->
+    <a-scene 
+        background="color: #001122"
+        vr-mode-ui="enabled: true"
+        device-orientation-permission-ui="enabled: true"
+        embedded
+        style="height: 100vh; width: 100vw;">
+        
+        <!-- Preload 360° images and audio -->
+        <a-assets>
+            <!-- Main 360° background - Taj Mahal area placeholder -->
+            <img id="taj-mahal-360" 
+                 src="https://images.unsplash.com/photo-1587135941948-670b381f08ce?q=80&w=2070&auto=format&fit=crop" 
+                 crossorigin="anonymous"
+                 alt="360 degree view of India landmark">
+            
+            <!-- Alternative scenes -->
+            <img id="kerala-backwaters" 
+                 src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2070&auto=format&fit=crop" 
+                 crossorigin="anonymous"
+                 alt="Kerala backwaters panoramic view">
+            
+            <img id="rajasthan-desert" 
+                 src="https://images.unsplash.com/photo-1509023464722-18d996393ca8?q=80&w=2070&auto=format&fit=crop" 
+                 crossorigin="anonymous"
+                 alt="Rajasthan desert landscape">
+            
+            <!-- Optional ambient sound -->
+            <audio id="ambient-sound" src="https://www.soundjay.com/misc/sounds/birds-chirping.mp3" preload="auto"></audio>
+        </a-assets>
+
+        <!-- 360° Sky/Background -->
+        <a-sky 
+            src="#taj-mahal-360" 
+            rotation="0 -130 0"
+            animation__rotate="property: rotation; to: 0 230 0; dur: 60000; easing: linear; loop: true">
+        </a-sky>
+
+        <!-- Interactive Hotspots -->
+        
+        <!-- Hotspot 1: Kerala Experience -->
+        <a-sphere 
+            id="kerala-hotspot"
+            position="-3 1.5 -4" 
+            radius="0.3" 
+            color="#4CAF50"
+            opacity="0.8"
+            animation__hover="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+            sound="src: #ambient-sound; on: click; volume: 0.3">
+            
+            <!-- Floating text -->
+            <a-text 
+                value="Kerala\nBackwaters" 
+                position="0 0.5 0" 
+                align="center" 
+                color="white"
+                width="4"
+                geometry="primitive: plane; width: auto; height: auto"
+                material="color: #4CAF50; opacity: 0.8"
+                billboard>
+            </a-text>
+            
+            <!-- Click interaction -->
+            <a-animation 
+                attribute="rotation"
+                dur="3000"
+                to="0 360 0"
+                repeat="indefinite"
+                easing="linear">
+            </a-animation>
+        </a-sphere>
+
+        <!-- Hotspot 2: Rajasthan Experience -->
+        <a-sphere 
+            id="rajasthan-hotspot"
+            position="3 1.5 -4" 
+            radius="0.3" 
+            color="#FF6B35"
+            opacity="0.8"
+            animation__hover="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+            
+            <!-- Floating text -->
+            <a-text 
+                value="Rajasthan\nDeserts" 
+                position="0 0.5 0" 
+                align="center" 
+                color="white"
+                width="4"
+                geometry="primitive: plane; width: auto; height: auto"
+                material="color: #FF6B35; opacity: 0.8"
+                billboard>
+            </a-text>
+            
+            <!-- Click interaction -->
+            <a-animation 
+                attribute="rotation"
+                dur="4000"
+                to="0 -360 0"
+                repeat="indefinite"
+                easing="linear">
+            </a-animation>
+        </a-sphere>
+
+        <!-- Welcome floating panel -->
+        <a-plane 
+            position="0 2.5 -5" 
+            width="6" 
+            height="1.5" 
+            color="#000"
+            opacity="0.7"
+            animation__float="property: position; to: 0 2.8 -5; dur: 3000; easing: easeInOutSine; loop: true; dir: alternate">
+            
+            <a-text 
+                value="Welcome to Explore India VR\nClick the spheres to change scenes\nUse VR button below for immersive experience" 
+                position="0 0 0.01" 
+                align="center" 
+                color="#FF6B35"
+                width="4">
+            </a-text>
+        </a-plane>
+
+        <!-- Ground/Floor for reference -->
+        <a-plane 
+            position="0 0 0" 
+            rotation="-90 0 0" 
+            width="20" 
+            height="20" 
+            color="#2E7D32"
+            opacity="0.3">
+        </a-plane>
+
+        <!-- Camera with look controls for VR -->
+        <a-camera 
+            id="camera"
+            look-controls="enabled: true"
+            wasd-controls="enabled: true"
+            position="0 1.6 0"
+            cursor="rayOrigin: mouse; fuse: false">
+            
+            <!-- Cursor for interaction -->
+            <a-cursor 
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                material="color: #FF6B35; shader: flat"
+                animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+                animation__fusing="property: scale; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+                raycaster="objects: [data-clickable]">
+            </a-cursor>
+        </a-camera>
+
+        <!-- Lighting -->
+        <a-light type="ambient" color="#404040" intensity="0.4"></a-light>
+        <a-light type="directional" position="1 1 1" color="#ffffff" intensity="0.6"></a-light>
+    </a-scene>
+
+    <!-- JavaScript for interactions -->
+    <script>
+        // Scene change functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sky = document.querySelector('a-sky');
+            const keralaHotspot = document.querySelector('#kerala-hotspot');
+            const rajasthanHotspot = document.querySelector('#rajasthan-hotspot');
+            
+            // Kerala hotspot click
+            keralaHotspot.addEventListener('click', function() {
+                sky.setAttribute('src', '#kerala-backwaters');
+                sky.setAttribute('rotation', '0 -90 0');
+                console.log('Switched to Kerala backwaters scene');
+                
+                // Add fade effect
+                sky.setAttribute('animation__fade', 'property: material.opacity; from: 0; to: 1; dur: 1000');
+            });
+            
+            // Rajasthan hotspot click
+            rajasthanHotspot.addEventListener('click', function() {
+                sky.setAttribute('src', '#rajasthan-desert');
+                sky.setAttribute('rotation', '0 45 0');
+                console.log('Switched to Rajasthan desert scene');
+                
+                // Add fade effect
+                sky.setAttribute('animation__fade', 'property: material.opacity; from: 0; to: 1; dur: 1000');
+            });
+
+            // VR mode detection
+            const scene = document.querySelector('a-scene');
+            scene.addEventListener('enter-vr', function() {
+                console.log('Entered VR mode');
+                document.body.classList.add('vr-mode');
+            });
+
+            scene.addEventListener('exit-vr', function() {
+                console.log('Exited VR mode');
+                document.body.classList.remove('vr-mode');
+            });
+
+            // Log when scene is loaded
+            scene.addEventListener('loaded', function() {
+                console.log('VR scene loaded successfully');
+            });
+        });
+
+        // Add click data attributes for interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const clickableElements = document.querySelectorAll('#kerala-hotspot, #rajasthan-hotspot');
+            clickableElements.forEach(el => {
+                el.setAttribute('data-clickable', '');
+            });
+        });
+    </script>
+</body>
+</html>
